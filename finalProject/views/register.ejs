@@ -1,0 +1,28 @@
+<% include partials/header %>
+
+<div>
+	<div class="row">
+		<div class="col-lg-6">
+			<img src="/logo.png">
+		</div>
+		<div class="col-lg-6">
+			<div class="details">
+				<h1>Register for a Smart Shopping Experience!</h1>
+				<br>
+				<p>We at smart shopping aim to redefine your shopping experience. Now, all yor daily needs are just a click away! So jump in and start filling up that cart!</p>
+				<br>
+				<form method="POST" action="/register">
+					<input type="text" name="username" placeholder="Username" class="input" required>
+					<br>
+					<input type="password" name="password" placeholder="Password" class="input" required>
+					<br>
+					<input type="password" name="cpassword" placeholder="Confirm Password" class="input" required>
+					<br>
+					<button id="submit">Sign Me Up!</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% include partials/footer %>

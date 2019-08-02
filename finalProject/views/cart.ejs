@@ -1,0 +1,72 @@
+<% include partials/header %>
+
+	<nav class="navbar navbar-expand-lg sticky-top">
+		  	<a class="navbar-brand" href="/home" id="companyName" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">
+		    	<b>Smart Shop</b>
+		  	</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"><i class="fa fa-navicon" style="font-size: 30px"></i></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right: 5%">
+		    	<ul class="navbar-nav ml-auto">
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/cart" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">Cart</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/bill" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Bill</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/history" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">Order History</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/profile" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">Profile</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/logout" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Sign Out</a>
+		      		</li>
+		    	</ul>
+		  	</div>
+	</nav>
+
+<% if(total == 0) { %>
+	<div class="cart">
+		<h1 id="emptyMsg">Looks Like Your Cart is Empty!</h1>
+		<p id="emptyMsg">Why not fill it up with our amazing range of products?</p>
+	</div>	
+<% } else { %>
+	<div class="cart">
+
+		<h1>Cart</h1>
+		<hr>
+		<div class="row">
+			<% cart.product.forEach(function(product) { %>
+				<div class="col-sm-3">
+					<img src="<%= product.image %>" id="cartImage">
+				</div>
+				<div class="col-sm-3">
+					<h4 id="cartProduct"><%= product.name %></h4>
+				</div>
+				<div class="col-sm-3">
+					<h6 id="cartProduct">Rs.<%= product.price %>/<%= product.unit %></h6>
+					<h6 id="cartProduct"><%= product.quantity %> <%= product.unit %></h6>
+				</div>
+				<div class="col-sm-3">
+					<form action="/cart/<%= product._id %>?_method=DELETE" method="POST">
+						<button id="cart">Remove Item</button>
+					</form>
+				</div>
+			<% }); %>
+		</div>
+		<hr>
+		<h1 style="text-align: center">Total - <%= total %></h1>
+		<br>
+		<form method="POST" action="/bill">
+			<button id="checkout">Proceed to Check Out</button>
+		</form>
+	</div>
+<% } %>
+
+
+
+<% include partials/footer %>
+

@@ -1,0 +1,19 @@
+<% include partials/header %>
+
+<% var i = 1; %>
+
+<div class="profile">
+	<h1 style="text-align: center">Choose a Profile Picture</h1>
+	<hr>
+	<div class="row">
+		<% for(i=1; i<7; i++) { %>
+			<div class="col-sm-2">
+				<img src="/<%= i %>.png" style="border-radius: 50%" onclick="location.href='/addProfile/<%= i %>'">
+				<hr>
+			</div>
+		<% } %>
+	</div> 
+</div>
+
+<% include partials/footer %>
+

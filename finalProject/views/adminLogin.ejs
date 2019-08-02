@@ -1,0 +1,29 @@
+<% include partials/header %>
+
+<div>
+	<div class="row">
+		<div class="col-lg-6">
+			<img src="/logo.png">
+		</div>
+		<div class="col-lg-6">
+			<div class="details">
+				<h1>Login for a Smart Selling Experience!</h1>
+				<hr>
+				<p>We at smart shopping aim to redefine your e-commerce experience. Now, all your products are just a click away! So jump in and start stacking up that shelf with whatever you like!</p>
+				<hr>
+				<form method="POST" action="/admin/login">
+					<input type="text" name="username" placeholder="Username" class="input">
+					<br>
+					<input type="password" name="password" placeholder="Password" class="input">
+					<br>
+					<button id="submit">Login!</button>
+				</form>
+				<hr>
+				<p>Don't Have an Account? <a href="/admin/register">Click Here</a> to Create One!</p>
+				<p>For Customer Login, <a href="/login">Click Here</a>!</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% include partials/footer %>

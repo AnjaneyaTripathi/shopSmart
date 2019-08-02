@@ -1,0 +1,28 @@
+<% include partials/header %>
+
+<div>
+	<div class="row">
+		<div class="col-lg-6">
+			<img src="/logo.png">
+		</div>
+		<div class="col-lg-6">
+			<div class="details">
+				<h1>Smart Selling using Shop Smart!</h1>
+				<br>
+				<p>You have mad the right decision by starting your business at SHOP SMART. We hope you have a wonderful time and make the best use of this platform.</p>
+				<br>
+				<form method="POST" action="/admin/register">
+					<input type="text" name="username" placeholder="Username" class="input" required>
+					<br>
+					<input type="password" name="password" placeholder="Password" class="input" required>
+					<br>
+					<input type="password" name="cpassword" placeholder="Confirm Password" class="input" required>
+					<br>
+					<button id="submit">Sign Me Up!</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% include partials/footer %>

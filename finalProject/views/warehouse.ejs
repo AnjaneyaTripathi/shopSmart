@@ -1,0 +1,67 @@
+<% include partials/header %>
+
+	<nav class="navbar navbar-expand-lg sticky-top">
+		  	<a class="navbar-brand" href="/warehouse" id="companyName" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">
+		    	<b>Smart Shop</b>
+		  	</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"><i class="fa fa-navicon" style="font-size: 30px"></i></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right: 5%">
+		    	<ul class="navbar-nav ml-auto">
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/pendingOrders" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">Pending Orders</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/warehouse/add" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Add Item to Shelf</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/logout" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Sign Out</a>
+		      		</li>
+		    	</ul>
+		  	</div>
+	</nav>
+
+<div class="warehouse">
+	<h1>Add Product to Shelf</h1>
+	<br>
+	<hr>
+	<br>
+	<form method="POST" action="/warehouse">
+		<input class="input" type="text" name="productName" placeholder="Product Name" required>
+		<br>
+		<input class="input" type="number" name="price" placeholder="Price" required>
+		<br>
+		<select name="unit" id="dropdown">
+			<option value="kg">Kilograms</option>
+		    <option value="pc">Piece</option>
+		</select>
+		<br>
+		<input class="input" type="number" name="stock" placeholder="Stock" required>
+		<br>
+		<select name="category" id="dropdown">
+			<option value="Fruits">Fruits</option>
+		    <option value="Vegetables">Vegetables</option>
+		    <option value="Dairy Products">Dairy Products</option>
+		    <option value="Confectionaries">Confectionaries</option>
+		    <option value="Stationery">Stationery</option>
+		    <option value="Drinks">Drinks</option>
+		    <option value="Household Items">Household Items</option>
+		    <option value="Grains and Pulses">Grains and Pulses</option>
+		</select>
+		<br>
+		<input class="input" type="text" name="description" placeholder="Description" style="height: 100px" required>
+		<br>
+		<select name="status" id="dropdown">
+			<option value="Today's Special">Today's Special</option>
+			<option value="Offer">Offer</option>
+		    <option value="none">None</option>
+		</select>
+		<br>
+		<input class="input" type="text" name="image" placeholder="Image URL" required>
+		<br>
+		<button>Add to Shelf</button>
+	</form>
+</div>
+
+<% include partials/footer %>

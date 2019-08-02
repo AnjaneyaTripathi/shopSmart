@@ -1,0 +1,70 @@
+<% include partials/header %>
+
+	<nav class="navbar navbar-expand-lg sticky-top">
+		  	<a class="navbar-brand" href="/warehouse" id="companyName" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">
+		    	<b>Smart Shop</b>
+		  	</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"><i class="fa fa-navicon" style="font-size: 30px"></i></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right: 5%">
+		    	<ul class="navbar-nav ml-auto">
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/pendingOrders" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">Pending Orders</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/warehouse/add" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Add Item to Shelf</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/logout" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Sign Out</a>
+		      		</li>
+		    	</ul>
+		  	</div>
+	</nav>
+
+<div class="history">
+	<h1>Pending Orders</h1>
+	<% orders.forEach(function(h) { %>
+		<% if(h.completed === "red" || h.completed === "green") { %>
+			<% var message = "Ready for Pick Up"; %>
+			<% if(h.completed === "green") { %>
+				<% message = "Deliver" %>
+			<% } %>
+			<% var d = new Date(parseInt(h.date)).toString().slice(0,15); %>
+			<hr>
+			<div class="row">
+				<div class="col-sm-6">
+					<h4 id="date" style="border-left: 1px solid #c4c4c4; padding-left: 5px;"><%= d %></h4>
+				</div>
+				<div class="col-sm-6">
+					<form action="/pendingOrders/<%= h._id %>" method="POST">
+						<button id="completed"><%= message %></button>
+					</form>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<% h.product.forEach(function(p) { %>
+					<div class="col-sm-3">
+						<h5 style="padding-left: 5px;"><%= p.name %></h5>
+					</div>
+					<div class="col-sm-3">
+						<img src="<%= p.image %>" id="cartImage">
+					</div>
+					<hr>
+					<div class="col-sm-3">
+						<p>Rs. <%= p.price %>/<%= p.unit %></p>
+					</div>
+					<hr>
+					<div class="col-sm-3">
+					    <p><%= p.quantity %> <%= p.unit %></p>
+					</div>
+				<% }); %>
+				<hr class="my-4">
+			</div>
+		<% } %>
+	<% }); %>
+
+</div>
+
+<% include partials/footer %>

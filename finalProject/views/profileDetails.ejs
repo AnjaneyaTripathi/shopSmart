@@ -1,0 +1,15 @@
+<% include partials/header %>
+
+<div class="profile">
+	<h3 style="text-align: center">Enter your Personal Details</h3>
+	<p style="text-align: center">Your details will not be shared to anyone</p>
+	<hr>
+	<form action="/addProfile/<%= i %>" method="POST">
+		<input type="number" name="mobile" placeholder="Mobile Number" min="10000000" max="9999999999" class="form-group" id="profileDetails" required>
+		<input type="email" name="email" placeholder="E-Mail ID" class="form-group" id="profileDetails" required>
+		<hr>
+		<button id="profileBtn">Start Shopping</button>
+	</form>
+</div>
+
+<% include partials/footer %>

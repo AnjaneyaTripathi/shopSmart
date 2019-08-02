@@ -1,0 +1,42 @@
+<% include partials/header %>
+	
+	<nav class="navbar navbar-expand-lg sticky-top">
+		  	<a class="navbar-brand" href="/home" id="companyName" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">
+		    	<b>Smart Shop</b>
+		  	</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"><i class="fa fa-navicon" style="font-size: 30px"></i></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right: 5%">
+		    	<ul class="navbar-nav ml-auto">
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/cart" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">Cart</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/bill" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Bill</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/history" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">Order History</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/profile" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">Profile</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/logout" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Sign Out</a>
+		      		</li>
+		    	</ul>
+		  	</div>
+	</nav>
+
+<div class="acknowledge">
+	<h1>Congratulations! Your order has been placed!</h1>
+	<p>You can come to the local Smart Shop and collect your order in 24 hours</p>
+	<br>
+	<h4>Your Order ID is: <%= orderId %></h4>
+	<p>Please show this ID while collecting from our center</p>
+	<br>
+	<p>We accept cash and card payment!</p>
+	<p>Kindly bring your own eco-friendly bags and play your part in saving the environment</p>
+</div>
+
+<% include partials/footer %>

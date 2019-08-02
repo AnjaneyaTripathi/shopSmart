@@ -1,0 +1,66 @@
+<% include partials/header %>
+
+	<nav class="navbar navbar-expand-lg sticky-top">
+		  	<a class="navbar-brand" href="/warehouse" id="companyName" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">
+		    	<b>Smart Shop</b>
+		  	</a>
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"><i class="fa fa-navicon" style="font-size: 30px"></i></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right: 5%">
+		    	<ul class="navbar-nav ml-auto">
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/pendingOrders" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">Pending Orders</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/warehouse/add" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Add Item to Shelf</a>
+		      		</li>
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="/logout" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Sign Out</a>
+		      		</li>
+		    	</ul>
+		  	</div>
+	</nav>
+
+
+<div class="store">
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Product</h3>
+		</div>
+		<div class="col-sm-2">
+			<h3>Price</h3>
+		</div>
+		<div class="col-sm-2">
+			<h3>Stock</h3>
+		</div>
+		<div class="col-sm-3">
+			<h3>Status</h3>
+		</div>
+		<div class="col-sm-2">
+			<h3>Edit</h3>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<% products.forEach(function(product) { %>
+			<div class="col-sm-3" id="prodInfo">
+				<h5><%= product.name %></h5>
+			</div>
+			<div class="col-sm-2" id="prodInfo">
+				<p><%= product.price %></p>
+			</div>
+			<div class="col-sm-2" id="prodInfo">
+				<p><%= product.stock %></p>
+			</div>
+			<div class="col-sm-3" id="prodInfo">
+				<p><%= product.status %></p>
+			</div>
+			<div class="col-sm-2" id="prodInfo">
+				<button id="editBtn" onclick="location.href='/update/<%= product._id %>'"><i class="material-icons">edit</i></button>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+<% include partials/footer %>
