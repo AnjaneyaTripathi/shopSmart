@@ -7,6 +7,14 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var request = require("request");
+var dotenv = require("dotenv");
+const connectdb=require('./config/setup');
+
+dotenv.config({
+	path:'./config/.env'
+});
+
+connectdb();
 
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/register');
@@ -19,7 +27,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
-mongoose.connect("mongodb://localhost/form_builder");
+//mongoose.connect("mongodb://localhost/form_builder");
 
 app.use(require("express-session")({
 	secret: "Anjaneya Tripathi",
