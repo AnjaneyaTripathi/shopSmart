@@ -86,8 +86,10 @@ app.get('/', function(req, res) {
 	res.redirect('/login');
    });
 
-app.listen(3000, function() {
-	console.log("Listening on port 3000");
+const port = 80;
+
+app.listen(port, function() {
+	console.log("Listening on port 80");
 });
 
 
