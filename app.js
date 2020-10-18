@@ -42,34 +42,34 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 var logout = require("./routes/logout");
-app.use('/logout',logout);
+app.use('/logout', logout);
 
 var profileroute = require("./routes/profile");
-app.use('/profile',profileroute);
+app.use('/profile', profileroute);
 
-var homee= require("./routes/home");
-app.use('/home',homee);
+var home = require("./routes/home");
+app.use('/home', home);
 
 var cartroute = require("./routes/cart");
-app.use('/cart',cartroute)
+app.use('/cart', cartroute)
 
 var detailsroute = require("./routes/detail");
-app.use('/details',detailsroute)
+app.use('/details', detailsroute)
 
-var addprtofileroute = require("./routes/addprofile2");
-app.use('/addProfile',addprtofileroute)
+var addprofileroute = require("./routes/addProfile2");
+app.use('/addProfile', addprofileroute)
 
 var billsroute = require("./routes/bill");
-app.use('/bill',billsroute)
+app.use('/bill', billsroute)
 
 var historyroute = require("./routes/history");
-app.use('/history',historyroute)
+app.use('/history', historyroute)
 
 var orderroute = require("./routes/orders");
-app.use('/orders',orderroute)
+app.use('/orders', orderroute)
 
 var warehouseroute = require("./routes/warehouse");
-app.use('/warehouse',warehouseroute)
+app.use('/warehouse', warehouseroute)
 
 var pendingorderroute = require("./routes/pendingorders");
 app.use('/pendingOrders', pendingorderroute)
