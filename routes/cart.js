@@ -2,6 +2,7 @@ const Profile = require("../models/profile")
 const Cart = require("../models/cart")
 const Product = require("../models/product")
 const User = require("../models/user")
+const Slot = require("../models/slot")
 const express = require('express');
 const router = express.Router();
 const {isLoggedIn, isLoggedInA} = require("../middleware/middleware");
@@ -9,21 +10,28 @@ const {isLoggedIn, isLoggedInA} = require("../middleware/middleware");
 router.get("/", isLoggedIn, function(req, res) {
 	var user = req.user;
 	var total = 0;
-	console.log("user",req.user)
-	console.log("cart",user.cart)
-	User.findById(req.user._id ,(err,result)=>{
-         console.log("results",result)
+	slots = []
+	slot = Slot.find({}, function(err, allSlots) {
+		if(err) {
+			console.log(err)
+		}
+		else {
+			allSlots.sort()
+			console.log(allSlots)
+			allSlots.forEach(function(s) {
+				slots.push(s)
+			});
+		}
 	})
 	Cart.findById(user.cart).populate('product').exec(function(err, product) {
 		if(err) {
 			console.log(err);
 		} 
 		else {
-			 console.log("product",product);
 			product.product.forEach(function(p) {
 				total += (p.quantity * p.price);
 			});
-			res.render("cart.ejs", {cart: product, total: total, user: req.user});
+			res.render("cart.ejs", {cart: product, total: total, user: req.user, slot: slots});
 		}
 	});
 });

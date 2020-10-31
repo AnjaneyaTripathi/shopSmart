@@ -6,7 +6,8 @@ var historySchema = mongoose.Schema({
 	}],
 	date: String,
 	completed: String,
-	username: String
+	username: String,
+	slot: Number
 });
 
 module.exports = mongoose.model("History", historySchema);

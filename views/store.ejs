@@ -61,6 +61,21 @@
 			</div>
 		<% }); %>
 	</div>
+	<form action="/warehouse/setSlot" method="POST">
+		<p>Start Time</p>
+		<select name="startTime" id="dropdown" required>
+			<% for(var i=0; i<24; i++) { %>
+				<option value="<%= i %>"> <%= i %>:00 </option>
+			<% } %>
+		</select>
+		<p>End Time</p>
+		<select name="endTime" id="dropdown" required>
+			<% for(var j=0; j<24; j++) { %>
+				<option value="<%= j %>"> <%= j %>:00 </option>
+			<% } %>
+		</select>
+		<button type="submit">Set Timings</button>
+	</form>
 </div>
 
 <% include partials/footer %>

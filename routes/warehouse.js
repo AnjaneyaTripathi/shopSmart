@@ -1,4 +1,5 @@
 const Profile = require("../models/profile")
+const Slot = require("../models/slot")
 const express = require('express');
 const router = express.Router();
 const {isLoggedIn, isLoggedInA} = require("../middleware/middleware");
@@ -14,6 +15,30 @@ router.get("/", isLoggedInA, function(req, res) {
 		}
 	});
 });
+
+router.post("/setSlot", isLoggedInA, function(req, res) {
+	var start = parseInt(req.body.startTime);
+	var end = parseInt(req.body.endTime);
+	console.log(start)
+	console.log(end+start)
+	while(start<end) {
+		console.log(start)
+		var newSlot = {
+			people: [],
+			slot: start
+		}
+		Slot.create(newSlot, async function(err, newlyCreated) {
+			if(err) {
+				console.log(err);
+			}
+			else {
+				console.log(newlyCreated)
+			}
+		});
+		start++;
+	}
+	res.redirect("/warehouse")
+})
 
 router.get("/add", isLoggedInA, function(req, res) {
 	res.render("warehouse.ejs");

@@ -61,6 +61,13 @@
 		<h1 style="text-align: center">Total - <%= total %></h1>
 		<br>
 		<form method="POST" action="/bill">
+			<select name="slot" id="dropdown" required>
+				<% slot.forEach(function(slot) { %>
+					<% if(slot.people.length < 5) { %>
+						<option value="<%= slot.slot %>"> <%= slot.slot %>:00 to <%= (slot.slot)+1 %>:00 </option>
+					<% } %>
+				<% }); %>
+			</select>
 			<button id="checkout">Proceed to Check Out</button>
 		</form>
 	</div>

@@ -31,7 +31,8 @@
 <div class="history">
 	<h1>Shopping History</h1>
 	<% history.forEach(function(h) { %>
-		<% var message = "Order is being processed" %>
+		<% var slot = h.slot %>
+		<% var message = "Order is being processed." %>
 		<% if(h.username == user.username) { %>
 			<% var d = new Date(parseInt(h.date)).toString().slice(0,15); %>
 			<% if(h.completed === "green") { %>
@@ -47,6 +48,12 @@
 				</div>
 				<div class="col-sm-6">
 					<p style="color: <%= h.completed %>"><%= message %></p>
+					<% if(h.completed === "red") { %>
+						<p style="color: black">Your slot is from <%= h.slot %>:00 to <%= h.slot %>:59</p>
+					<% } %>
+					<% if(h.completed === "green") { %>
+						<p style="color: black">Your slot is from <%= h.slot %>:00 to <%= h.slot %>:59</p>
+					<% } %>
 				</div>
 			</div>
 			<br>
