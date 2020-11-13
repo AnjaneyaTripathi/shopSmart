@@ -4,6 +4,7 @@ const Slot = require("../models/slot")
 const express = require('express');
 const router = express.Router();
 const {isLoggedIn, isLoggedInA} = require("../middleware/middleware");
+var QRCode = require('qrcode')
 
 router.post("/", isLoggedIn, function(req, res) {
 	var user = req.user;
